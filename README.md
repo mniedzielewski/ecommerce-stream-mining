@@ -26,7 +26,6 @@ The analysis focuses on two main streaming tasks:
 3. **Drift Resilience:** Model robustness is highly task-specific. ML models adapted better to sudden conversion surges (intent-boost), whereas baselines were robust to consistent label permutations.
 
 ## Repository Structure
-* `data/` - Contains the RetailRocket dataset subset used for this analysis.
 * `01_data_preprocessing.ipynb` - Notebook for point-in-time data merging and stream preparation.
 * `02_stream_pipeline.ipynb` - Prequential evaluation of Task A and Task B models.
 * `03_stream_drift_test.ipynb` - Implementation and testing of the 5 concept drift scenarios.
@@ -36,7 +35,15 @@ The analysis focuses on two main streaming tasks:
 
 ## How to Run
 This project is built using Jupyter Notebooks. To replicate the findings:
-1. Ensure you have the required libraries installed: `pip install pandas numpy river matplotlib imbalanced-learn jupyter`
-2. Run `01_data_preprocessing.ipynb` to generate the streaming tables from the raw data.
-3. Execute `02_stream_pipeline.ipynb` for the main model evaluation.
-4. Run `03_stream_drift_test.ipynb` to visualize how models react to synthetic concept drift.
+
+### 1. Data Setup
+The raw data files are not included in this repository due to size constraints.
+* Download the RetailRocket dataset from [Kaggle (Retailrocket recommender system dataset)](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset).
+* Create a `data/` directory in the root of the repository.
+* Unpack the downloaded files (`events.csv`, `item_properties_part1.csv`, `item_properties_part2.csv`, `category_tree.csv`) into the `data/` folder.
+
+### 2. Execution
+* Ensure you have the required libraries installed: `pip install pandas numpy river matplotlib imbalanced-learn jupyter`
+* Run `01_data_preprocessing.ipynb` to generate the streaming tables from the raw data.
+* Execute `02_stream_pipeline.ipynb` for the main model evaluation.
+* Run `03_stream_drift_test.ipynb` to visualize how models react to synthetic concept drift.
